@@ -28,8 +28,6 @@ backend/
 │
 ├── 🧪 Testing & Deployment
 │   ├── test_api.py            # API testing suite
-│   ├── Dockerfile             # Docker container setup (optional)
-│   ├── docker-compose.yml     # Docker Compose for services (optional)
 │   └── .gitignore             # Git ignore configuration
 │
 └── 📦 Dependencies
@@ -89,8 +87,6 @@ backend/
 - ✅ Multilingual query testing
 
 ### 8. **Production Ready**
-- ✅ Docker containerization
-- ✅ Docker Compose orchestration
 - ✅ Environment configuration
 - ✅ Security best practices
 - ✅ Logging configuration
@@ -166,13 +162,10 @@ cp .env.example .env
 # Edit .env with your API keys
 ```
 
-### 3. Start Qdrant (Choose one)
+### 3. Start Qdrant
 ```bash
-# Option A: Docker
-docker run -p 6333:6333 qdrant/qdrant
-
-# Option B: Docker Compose
-docker-compose up -d qdrant
+# Local binary
+./qdrant
 ```
 
 ### 4. Upload Schemes
@@ -237,7 +230,7 @@ Send to Frontend/Vapi
 | **Embeddings** | OpenAI text-embedding-3-small | Semantic search vectors |
 | **Vector Database** | Qdrant 2.7.0 | Semantic search |
 | **Translation** | Google Cloud Translate | Multilingual support |
-| **Container** | Docker + Docker Compose | Deployment & orchestration |
+| **Runtime** | Local Python + Qdrant | Backend and vector search |
 | **Language** | Python 3.11+ | Implementation language |
 
 ---
@@ -284,8 +277,6 @@ Send to Frontend/Vapi
 | **.env.example** | Environment template |
 | **.env** | Actual environment (user fills in) |
 | **.gitignore** | Git ignore rules |
-| **Dockerfile** | Container setup |
-| **docker-compose.yml** | Multi-service orchestration |
 
 ### Documentation Files
 
@@ -380,7 +371,7 @@ pip install -r requirements.txt
 ### Issue: Qdrant Connection Failed
 **Solution:**
 ```bash
-docker run -p 6333:6333 qdrant/qdrant
+./qdrant
 ```
 
 ### Issue: API Key Errors
@@ -411,7 +402,6 @@ python upload_data.py
 | OpenAI API | https://platform.openai.com/docs |
 | Gemini API | https://ai.google.dev |
 | Qdrant Docs | https://qdrant.tech/documentation |
-| Docker Docs | https://docs.docker.com |
 
 ---
 
@@ -421,7 +411,7 @@ python upload_data.py
 - Python 3.9+
 - 2GB RAM
 - Internet connection
-- Docker (recommended)
+- Qdrant binary running locally
 
 ### Production
 - Python 3.11+
@@ -458,7 +448,6 @@ python upload_data.py
 - Production-ready code
 - Comprehensive documentation
 - Test suite included
-- Docker support (optional)
 - Environment management
 
 🚀 **Ready to Deploy**

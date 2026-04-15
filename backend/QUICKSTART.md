@@ -32,12 +32,7 @@ chmod +x qdrant
 # https://github.com/qdrant/qdrant/releases
 ```
 
-#### Option B: Use Docker (if Docker is installed)
-```bash
-docker run -p 6333:6333 qdrant/qdrant
-```
-
-#### Option C: Use Qdrant Cloud (Managed)
+#### Option B: Use Qdrant Cloud (Managed)
 - Sign up at https://cloud.qdrant.io
 - Create a cluster
 - Update `QDRANT_URL` and `QDRANT_API_KEY` in `.env`
@@ -88,8 +83,6 @@ backend/
 ├── test_api.py            # API tests
 ├── knowledge.json         # Scheme database
 ├── requirements.txt       # Python dependencies
-├── Dockerfile             # Docker setup
-├── docker-compose.yml     # Docker Compose
 ├── .env                   # Environment variables
 └── README_BACKEND.md      # Full documentation
 ```
@@ -102,11 +95,8 @@ backend/
 ### ❌ "Connection refused" (Qdrant)
 **Solution:** Ensure Qdrant is running:
 ```bash
-# Local download
+# Local binary
 ./qdrant
-
-# Or Docker
-docker run -p 6333:6333 qdrant/qdrant
 ```
 
 ### ❌ "API key error"
@@ -152,19 +142,7 @@ python main.py                     # Terminal 3
 python test_api.py                 # Terminal 4
 ```
 
-**Or with Docker:**
-```bash
-docker run -p 6333:6333 qdrant/qdrant   # Terminal 1
-python upload_data.py                    # Terminal 2
-python main.py                           # Terminal 3
-```
-
 ## Production Deployment
-
-### Docker Setup
-```bash
-docker-compose up -d
-```
 
 ### Manual Setup
 ```bash
