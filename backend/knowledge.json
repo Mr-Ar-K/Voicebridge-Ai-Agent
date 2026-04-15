@@ -1,0 +1,124 @@
+{
+  "schemes": [
+    {
+      "id": 1,
+      "name_en": "PM Kisan",
+      "name_te": "PM కిసాన్",
+      "category": "Agriculture",
+      "description_en": "Pradhan Mantri Kisan Samman Nidhi is a centrally sponsored scheme to provide direct income support to farmers.",
+      "description_te": "ప్రధాన్‌మంత్రి కిసాన్ సమ్మాన్ నిధి రైతులకు సరిపోయే ఆదాయ సহాయ ఏకీకృత సంచయం.",
+      "benefits_en": "Financial support of ₹6,000 per year in three installments of ₹2,000 each",
+      "eligibility_en": "All landholding farmers, except constitutional posts holders",
+      "documents_en": "Aadhaar, Land Records, Bank Account details",
+      "application_process_en": "Apply through nearest PM Kisan Service Center or online at pmkisan.gov.in"
+    },
+    {
+      "id": 2,
+      "name_en": "Ayushman Bharat",
+      "name_te": "ఆయుష్మాన్ భారత్",
+      "category": "Health",
+      "description_en": "Pradhan Mantri Jan Arogya Yojana is the world's largest government healthcare scheme.",
+      "description_te": "జన్ఆరోగ్య ప్రతిష్ఠానం ప్రపంచ యొక్క అతిపెద్ద ఆరోగ్య సంరక్షణ ప్రణాళిక.",
+      "benefits_en": "Free hospitalization coverage up to ₹5,00,000 per family per year",
+      "eligibility_en": "Below poverty line families and unorganized workers",
+      "documents_en": "Ration card, Aadhar, Family identification",
+      "application_process_en": "Visit nearest health center or register online at pmjay.gov.in"
+    },
+    {
+      "id": 3,
+      "name_en": "NSP Scholarship",
+      "name_te": "NSP స్కాలర్‌షిప్",
+      "category": "Education",
+      "description_en": "National Scholarship Portal provides scholarships for meritorious and vulnerable students.",
+      "description_te": "జాతీయ స్కాలర్‌షిప్ పోర్టల్ సమర్థ మరియు సున్నితమైన విద్యార్థులకు స్కాలర్‌షిప్‌లను అందిస్తుంది.",
+      "benefits_en": "Scholarships ranging from ₹500 to ₹15,000 per month depending on category",
+      "eligibility_en": "Students from low-income families scoring well in academics",
+      "documents_en": "Income certificate, Academic records, Bank account proof",
+      "application_process_en": "Register on scholarships.gov.in and apply through your institution"
+    },
+    {
+      "id": 4,
+      "name_en": "PMKVY Skill India",
+      "name_te": "PMKVY నైపుణ్య భారత్",
+      "category": "Employment",
+      "description_en": "Pradhan Mantri Kaushal Vikas Yojana provides skill training for employment.",
+      "description_te": "ప్రధాన్‌మంత్రి కౌశల్ విఖాస్ యోజన ఉపయోగం కోసం నైపుణ్య శిక్షణ అందిస్తుంది.",
+      "benefits_en": "Free skill training courses, stipend support, job placement assistance",
+      "eligibility_en": "Unemployed youth aged 15-35 years",
+      "documents_en": "Aadhaar, ID proof, Educational certificate",
+      "application_process_en": "Apply at nearest PMKVY training center or online at pmkvy.gov.in"
+    },
+    {
+      "id": 5,
+      "name_en": "Mudra Loan",
+      "name_te": "ముద్ర లోన్",
+      "category": "Finance",
+      "description_en": "Pradhan Mantri Mudra Yojana provides loans for non-agricultural small businesses.",
+      "description_te": "ప్రధాన్‌మంత్రి ముద్ర యోజన చేతిపనులు మరియు చిన్న వ్యాపార ప్రకటనల కోసం లోన్‌లను అందిస్తుంది.",
+      "benefits_en": "Collateral-free loans up to ₹10,00,000",
+      "eligibility_en": "Individual entrepreneurs and business owners",
+      "documents_en": "KYC documents, Business plan, Bank account",
+      "application_process_en": "Apply at nearest bank or NBFC partnered with the scheme"
+    },
+    {
+      "id": 6,
+      "name_en": "Digital India",
+      "name_te": "డిజిటల్ ఇండియా",
+      "category": "Technology",
+      "description_en": "Digital India initiative aims to transform India into a digitally empowered society.",
+      "description_te": "డిజిటల్ ఇండియా భారతదేశాన్ని డిజిటల్‌గా సంపన్నమైన సమాజంగా రూపాంతరం చేయాలనే ఉద్దేశ్యం.",
+      "benefits_en": "Free WiFi in public areas, Digital skill training, Digital services",
+      "eligibility_en": "All citizens of India",
+      "documents_en": "Identity proof, Contact details",
+      "application_process_en": "Access services through common service centers or online portals"
+    },
+    {
+      "id": 7,
+      "name_en": "Stand Up India",
+      "name_te": "స్టాండ్ అప్ ఇండియా",
+      "category": "Finance",
+      "description_en": "Stand Up India provides loans and support to entrepreneurship, particularly for SC/ST and women.",
+      "description_te": "స్టాండ్ అప్ ఇండియా ఆత్మీయ ప్రచారం కోసం లోన్‌లు మరియు సహాయ అందిస్తుంది.",
+      "benefits_en": "Loans up to ₹1,000,000 for setting up new enterprises",
+      "eligibility_en": "SC/ST and women entrepreneurs in non-agricultural sectors",
+      "documents_en": "Business registration, ID proof, Bank account",
+      "application_process_en": "Apply at participating banks with business plan and financial documents"
+    },
+    {
+      "id": 8,
+      "name_en": "Crop Insurance",
+      "name_te": "పంట బీమా",
+      "category": "Agriculture",
+      "description_en": "Pradhan Mantri Fasal Bima Yojana provides crop insurance to farmers.",
+      "description_te": "ప్రధాన్‌మంత్రి ఫసల్ బీమా యోజన రైతులకు పంట బీమా అందిస్తుంది.",
+      "benefits_en": "Insurance coverage against crop failure, premium subsidy of 75-90%",
+      "eligibility_en": "All farmers engaged in cultivation",
+      "documents_en": "Land records, ID proof, Bank account",
+      "application_process_en": "Apply through approved insurance partners or banks"
+    },
+    {
+      "id": 9,
+      "name_en": "Matric Scholarship",
+      "name_te": "నిర్మాణం స్కాలర్‌షిప్",
+      "category": "Education",
+      "description_en": "Post-Matric Scholarship for SC/ST/OBC students to pursue higher education.",
+      "description_te": "ఉన్నత విద్యను అనుసరించడానికి SC/ST/OBC విద్యార్థులకు పోస్ట్-మ్యాట్రిక్ స్కాలర్‌షిప్.",
+      "benefits_en": "Scholarships covering tuition and maintenance allowance",
+      "eligibility_en": "SC/ST/OBC students with pass marks in class 12",
+      "documents_en": "Caste certificate, Academic records, Income proof",
+      "application_process_en": "Apply through educational institution or offline at social welfare office"
+    },
+    {
+      "id": 10,
+      "name_en": "NREGA",
+      "name_te": "NREGA",
+      "category": "Employment",
+      "description_en": "National Rural Employment Guarantee Act provides 100 days employment guarantee per year.",
+      "description_te": "జాతీయ గ్రామీణ ఉపయోగం హామీ చట్టం ప్రతి సంవత్సరానికి 100 రోజుల ఉపయోగం హామీని అందిస్తుంది.",
+      "benefits_en": "Guaranteed 100 days of employment at minimum wage rates",
+      "eligibility_en": "Rural unskilled workers seeking employment",
+      "documents_en": "ID proof, Job card, Address proof",
+      "application_process_en": "Register at NREGA office and create job card for employment"
+    }
+  ]
+}

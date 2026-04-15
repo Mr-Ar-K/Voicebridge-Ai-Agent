@@ -1,0 +1,28 @@
+# FastAPI Framework
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+
+# Environment
+python-dotenv
+
+# AI/ML APIs
+google-generativeai
+openai
+
+# Vector Database
+qdrant-client
+
+# Translation & Language
+google-cloud-translate
+
+# HTTP & Networking
+requests
+httpx
+
+# Development (optional)
+pytest
+pytest-asyncio
+black
+flake8
