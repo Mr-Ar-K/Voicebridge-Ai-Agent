@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VoiceBridge AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+<style>
+/* UI unchanged from Claude */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+--bg:#05091a;
+--surface:rgba(255,255,255,0.04);
+--surface-hover:rgba(255,255,255,0.07);
+--border:rgba(255,255,255,0.08);
+--accent:#3b82f6;
+--accent-glow:rgba(59,130,246,0.35);
+--accent-soft:rgba(59,130,246,0.12);
+--text:#e8edf5;
+--text-muted:rgba(232,237,245,0.45);
+--user-bubble:rgba(59,130,246,0.15);
+--ai-bubble:rgba(255,255,255,0.04);
+--danger:#ef4444;
+--danger-glow:rgba(239,68,68,0.35);
+}
+
+html,body{
+height:100%;
+font-family:'DM Sans',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow:hidden;
+}
+
+/* background */
+body::before{
+content:'';
+position:fixed; inset:0; z-index:0;
+background:
+radial-gradient(ellipse 80% 60% at 20% 10%, rgba(59,130,246,0.12) 0%, transparent 60%),
+radial-gradient(ellipse 60% 50% at 80% 80%, rgba(99,102,241,0.10) 0%, transparent 55%),
+radial-gradient(ellipse 40% 40% at 50% 50%, rgba(14,165,233,0.06) 0%, transparent 60%);
+pointer-events:none;
+}
+
+body::after{
+content:'';
+position:fixed; inset:0; z-index:0;
+background-image:
+linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+background-size:48px 48px;
+pointer-events:none;
+}
+
+.app{
+position:relative;
+z-index:1;
+display:flex;
+flex-direction:column;
+align-items:center;
+height:100vh;
+padding:36px 20px 28px;
+gap:24px;
+}
+
+.header{text-align:center;}
+
+.logo-row{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+margin-bottom:6px;
+}
+
+.logo-icon{
+width:36px;height:36px;
+background:linear-gradient(135deg,#3b82f6,#6366f1);
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 20px var(--accent-glow);
+}
+
+h1{
+font-family:'Syne',sans-serif;
+font-size:28px;
+font-weight:800;
+background:linear-gradient(135deg,#e8edf5 30%,#3b82f6 100%);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+font-size:13px;
+color:var(--text-muted);
+}
+
+.conversation{
+flex:1;
+width:100%;
+max-width:680px;
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:20px;
+overflow-y:auto;
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:14px;
+backdrop-filter:blur(12px);
+}
+
+.bubble-row{
+display:flex;
+gap:10px;
+}
+
+.bubble-row.user{
+flex-direction:row-reverse;
+}
+
+.bubble{
+max-width:78%;
+padding:11px 15px;
+border-radius:16px;
+font-size:14px;
+line-height:1.6;
+}
+
+.bubble.user{
+background:var(--user-bubble);
+border:1px solid rgba(59,130,246,0.25);
+}
+
+.bubble.ai{
+background:var(--ai-bubble);
+border:1px solid var(--border);
+}
+
+.controls{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:14px;
+width:100%;
+max-width:680px;
+}
+
+.mic-button{
+width:72px;
+height:72px;
+border-radius:50%;
+border:none;
+cursor:pointer;
+background:linear-gradient(145deg,#3b82f6,#2563eb);
+color:#fff;
+}
+
+.transcript-row{
+display:flex;
+gap:8px;
+width:100%;
+}
+
+.transcript-input{
+flex:1;
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:12px;
+padding:11px 16px;
+color:var(--text);
+}
+
+.send-btn{
+padding:11px 18px;
+background:var(--accent-soft);
+border:1px solid rgba(59,130,246,0.3);
+border-radius:12px;
+color:var(--accent);
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="header">
+<div class="logo-row">
+<div class="logo-icon">🎤</div>
+<h1>VoiceBridge AI</h1>
+</div>
+
+<p class="subtitle">
+Ask about Government Schemes
+</p>
+
+</header>
+
+<div class="conversation" id="conversation">
+</div>
+
+<div class="controls">
+
+<button class="mic-button" id="micBtn">
+🎤
+</button>
+
+<div class="transcript-row">
+
+<input
+id="textInput"
+class="transcript-input"
+placeholder="Or type your question here"
+/>
+
+<button id="sendBtn" class="send-btn">
+Send
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const API_URL =
+"https://relieve-clasp-handbrake.ngrok-free.dev/query";
+
+const conversation =
+document.getElementById("conversation");
+
+const micBtn =
+document.getElementById("micBtn");
+
+const sendBtn =
+document.getElementById("sendBtn");
+
+const input =
+document.getElementById("textInput");
+
+let recognition;
+
+const SpeechRecognition =
+window.SpeechRecognition ||
+window.webkitSpeechRecognition;
+
+if(SpeechRecognition){
+
+recognition =
+new SpeechRecognition();
+
+recognition.lang = "en-IN";
+
+recognition.maxAlternatives = 3;
+
+recognition.onresult = e=>{
+
+const text =
+e.results[0][0].transcript;
+
+sendQuery(text);
+
+};
+
+}
+
+micBtn.onclick = ()=>{
+
+recognition.start();
+
+};
+
+sendBtn.onclick = ()=>{
+
+sendQuery(input.value);
+
+};
+
+async function sendQuery(q){
+
+if(!q) return;
+
+addBubble(q,"user");
+
+input.value="";
+
+const loading =
+addBubble(
+"Fetching scheme information...",
+"ai"
+);
+
+try{
+
+const res =
+await fetch(API_URL,{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+question:q,
+
+session_id:"web-demo"
+
+})
+
+});
+
+const data =
+await res.json();
+
+loading.remove();
+
+addBubble(
+data.answer,
+"ai"
+);
+
+}catch{
+
+loading.remove();
+
+addBubble(
+"Server error",
+"ai"
+);
+
+}
+
+}
+
+function addBubble(text,type){
+
+const row =
+document.createElement("div");
+
+row.className =
+"bubble-row "+type;
+
+const bubble =
+document.createElement("div");
+
+bubble.className =
+"bubble "+type;
+
+bubble.innerText = text;
+
+row.appendChild(bubble);
+
+conversation.appendChild(row);
+
+conversation.scrollTop =
+conversation.scrollHeight;
+
+return row;
+
+}
+
+input.focus();
+
+</script>
+
+</body>
+</html>

@@ -10,7 +10,9 @@
       "benefits_en": "Financial support of ₹6,000 per year in three installments of ₹2,000 each",
       "eligibility_en": "All landholding farmers, except constitutional posts holders",
       "documents_en": "Aadhaar, Land Records, Bank Account details",
-      "application_process_en": "Apply through nearest PM Kisan Service Center or online at pmkisan.gov.in"
+      "application_process_en": "Apply through nearest PM Kisan Service Center or online at pmkisan.gov.in",
+      "link":"https://pmkisan.gov.in/",
+      "website": "pmkisan.gov.in"
     },
     {
       "id": 2,
@@ -22,7 +24,9 @@
       "benefits_en": "Free hospitalization coverage up to ₹5,00,000 per family per year",
       "eligibility_en": "Below poverty line families and unorganized workers",
       "documents_en": "Ration card, Aadhar, Family identification",
-      "application_process_en": "Visit nearest health center or register online at pmjay.gov.in"
+      "application_process_en": "Visit nearest health center or register online at pmjay.gov.in",
+      "link":"https://pmjay.gov.in/",
+      "website": "pmjay.gov.in"
     },
     {
       "id": 3,
@@ -34,7 +38,9 @@
       "benefits_en": "Scholarships ranging from ₹500 to ₹15,000 per month depending on category",
       "eligibility_en": "Students from low-income families scoring well in academics",
       "documents_en": "Income certificate, Academic records, Bank account proof",
-      "application_process_en": "Register on scholarships.gov.in and apply through your institution"
+      "application_process_en": "Register on scholarships.gov.in and apply through your institution",
+      "link":"https://scholarships.gov.in/",
+      "website": "scholarships.gov.in"
     },
     {
       "id": 4,
@@ -46,7 +52,9 @@
       "benefits_en": "Free skill training courses, stipend support, job placement assistance",
       "eligibility_en": "Unemployed youth aged 15-35 years",
       "documents_en": "Aadhaar, ID proof, Educational certificate",
-      "application_process_en": "Apply at nearest PMKVY training center or online at pmkvy.gov.in"
+      "application_process_en": "Apply at nearest PMKVY training center or online at pmkvy.gov.in",
+      "link":"https://pmkvy.gov.in/",
+      "website": "pmkvy.gov.in"
     },
     {
       "id": 5,
@@ -58,7 +66,9 @@
       "benefits_en": "Collateral-free loans up to ₹10,00,000",
       "eligibility_en": "Individual entrepreneurs and business owners",
       "documents_en": "KYC documents, Business plan, Bank account",
-      "application_process_en": "Apply at nearest bank or NBFC partnered with the scheme"
+      "application_process_en": "Apply at nearest bank or NBFC partnered with the scheme",
+      "link":"https://mudra.org.in",
+      "website": "mudra.org.in"
     },
     {
       "id": 6,
@@ -70,7 +80,9 @@
       "benefits_en": "Free WiFi in public areas, Digital skill training, Digital services",
       "eligibility_en": "All citizens of India",
       "documents_en": "Identity proof, Contact details",
-      "application_process_en": "Access services through common service centers or online portals"
+      "application_process_en": "Access services through common service centers or online portals",
+      "link":"https://digitalindia.gov.in",
+      "website": "digitalindia.gov.in"
     },
     {
       "id": 7,
@@ -82,7 +94,9 @@
       "benefits_en": "Loans up to ₹1,000,000 for setting up new enterprises",
       "eligibility_en": "SC/ST and women entrepreneurs in non-agricultural sectors",
       "documents_en": "Business registration, ID proof, Bank account",
-      "application_process_en": "Apply at participating banks with business plan and financial documents"
+      "application_process_en": "Apply at participating banks with business plan and financial documents",
+      "link":"https://standupmitra.in",
+      "website": "standupmitra.in"
     },
     {
       "id": 8,
@@ -94,7 +108,9 @@
       "benefits_en": "Insurance coverage against crop failure, premium subsidy of 75-90%",
       "eligibility_en": "All farmers engaged in cultivation",
       "documents_en": "Land records, ID proof, Bank account",
-      "application_process_en": "Apply through approved insurance partners or banks"
+      "application_process_en": "Apply through approved insurance partners or banks",
+      "link":"https://pmfby.gov.in/",
+      "website": "pmfby.gov.in"
     },
     {
       "id": 9,
@@ -106,7 +122,9 @@
       "benefits_en": "Scholarships covering tuition and maintenance allowance",
       "eligibility_en": "SC/ST/OBC students with pass marks in class 12",
       "documents_en": "Caste certificate, Academic records, Income proof",
-      "application_process_en": "Apply through educational institution or offline at social welfare office"
+      "application_process_en": "Apply through educational institution or offline at social welfare office",
+      "link":"https://scholarships.gov.in/",
+      "website": "scholarships.gov.in"
     },
     {
       "id": 10,
@@ -118,7 +136,9 @@
       "benefits_en": "Guaranteed 100 days of employment at minimum wage rates",
       "eligibility_en": "Rural unskilled workers seeking employment",
       "documents_en": "ID proof, Job card, Address proof",
-      "application_process_en": "Register at NREGA office and create job card for employment"
+      "application_process_en": "Register at NREGA office and create job card for employment",
+      "link":"https://nrega.nic.in/",
+      "website": "nrega.nic.in"
     }
   ]
 }

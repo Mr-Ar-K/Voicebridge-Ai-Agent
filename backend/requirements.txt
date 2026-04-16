@@ -8,14 +8,14 @@ pydantic-settings
 python-dotenv
 
 # AI/ML APIs
-google-generativeai
-openai
+groq
 
 # Vector Database
 qdrant-client
 
 # Translation & Language
 google-cloud-translate
+langdetect
 
 # HTTP & Networking
 requests
