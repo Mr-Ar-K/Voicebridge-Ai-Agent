@@ -10,10 +10,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ==================== API Keys ====================
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GOOGLE_TRANSLATE_API_KEY = os.getenv("GOOGLE_TRANSLATE_API_KEY")
-VAPI_API_KEY = os.getenv("VAPI_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 # ==================== Qdrant Configuration ====================
 QDRANT_URL = os.getenv("QDRANT_URL", "http://localhost:6333")
@@ -25,9 +24,13 @@ EMBEDDING_MODEL = "text-embedding-3-small"
 EMBEDDING_DIMENSION = 1536
 
 # ==================== LLM Configuration ====================
-GEMINI_MODEL = "gemini-1.5-flash"
-GEMINI_MAX_TOKENS = 1024
-GEMINI_TEMPERATURE = 0.7
+# Groq (LLaMA & Mixtral) Configuration
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
+GROQ_FALLBACK_MODELS = [
+    "llama-3.3-70b-versatile",
+    "llama-3.1-8b-instant",
+    "mixtral-8x7b-32768",
+]
 
 # ==================== Application Configuration ====================
 ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
@@ -59,7 +62,7 @@ KNOWLEDGE_FILE = "knowledge.json"
 def validate_configuration():
     """Validate that all required configuration is present."""
     required_keys = [
-        "GEMINI_API_KEY",
+        "GROQ_API_KEY",
         "OPENAI_API_KEY"
     ]
     
