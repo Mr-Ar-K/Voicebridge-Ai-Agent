@@ -5,11 +5,12 @@ from typing import Optional, List
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import google.generativeai as genai
+from google import genai
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
 from openai import OpenAI
 from google.cloud import translate_v2
+from google.api_core.client_options import ClientOptions
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -41,15 +42,24 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 KNOWLEDGE_PATH = os.path.join(BASE_DIR, "knowledge.json")
 
 # Initialize clients
-genai.configure(api_key=GEMINI_API_KEY)
+genai_client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY else None
 openai_client = OpenAI(api_key=OPENAI_API_KEY) if OPENAI_API_KEY else None
 
 # Initialize Qdrant client
-qdrant_client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
+try:
+    qdrant_client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
+except Exception as e:
+    qdrant_client = None
+    logger.warning(f"Qdrant client not initialized: {e}")
 
 # Initialize Google Translate client
 try:
-    translate_client = translate_v2.Client()
+    if GOOGLE_TRANSLATE_API_KEY:
+        translate_client = translate_v2.Client(
+            client_options=ClientOptions(api_key=GOOGLE_TRANSLATE_API_KEY)
+        )
+    else:
+        translate_client = translate_v2.Client()
 except Exception:
     translate_client = None
     logger.warning("Google Cloud Translate client not initialized")
@@ -124,18 +134,21 @@ def get_embeddings(text: str) -> List[float]:
 def search_schemes(query: str, top_k: int = 3) -> List[dict]:
     """Search for relevant schemes using Qdrant semantic search."""
     try:
+        if not qdrant_client:
+            logger.warning("Qdrant client is not available")
+            return []
         # Get embeddings for the query
         query_embedding = get_embeddings(query)
         
         # Search in Qdrant
-        search_results = qdrant_client.search(
+        search_results = qdrant_client.query_points(
             collection_name=COLLECTION_NAME,
-            query_vector=query_embedding,
+            query=query_embedding,
             limit=top_k
         )
         
         schemes = []
-        for result in search_results:
+        for result in search_results.points:
             scheme_data = result.payload
             schemes.append(scheme_data)
         
@@ -179,8 +192,12 @@ User Question: {question}
 Please provide a helpful response in simple language."""
         
         # Generate response using Gemini
-        model = genai.GenerativeModel('gemini-1.5-flash')
-        response = model.generate_content(full_prompt)
+        if not genai_client:
+            raise RuntimeError("Gemini service unavailable: GEMINI_API_KEY is not configured")
+        response = genai_client.models.generate_content(
+            model='gemini-1.5-flash',
+            contents=full_prompt
+        )
         
         answer_text = response.text
         

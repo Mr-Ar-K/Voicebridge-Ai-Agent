@@ -164,14 +164,14 @@ def verify_setup():
         # Test search
         test_query = "farmer financial support"
         test_embedding = get_embeddings(test_query)
-        search_results = qdrant_client.search(
+        search_results = qdrant_client.query_points(
             collection_name=COLLECTION_NAME,
-            query_vector=test_embedding,
+            query=test_embedding,
             limit=3
         )
         
         logger.info(f"Test search results for '{test_query}':")
-        for result in search_results:
+        for result in search_results.points:
             scheme_name = result.payload.get('name_en', 'Unknown')
             logger.info(f"  - {scheme_name} (similarity: {result.score:.2f})")
         
