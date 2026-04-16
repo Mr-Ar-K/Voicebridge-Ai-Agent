@@ -8,7 +8,7 @@ pydantic-settings
 python-dotenv
 
 # AI/ML APIs
-google-generativeai
+google-genai
 openai
 
 # Vector Database
