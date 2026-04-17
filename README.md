@@ -160,7 +160,7 @@ VoiceBridge AI can scale to:
 
 ## 👥 Team
 
-Team Name: Gamma Geeks
+Team Name: gamma geeks3
 
 Team Leader:
 M. Madhu Nikhil
