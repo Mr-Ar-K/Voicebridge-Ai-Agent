@@ -435,5 +435,5 @@ Cloud Infrastructure
 ---
 
 **Architecture Version:** 1.0
-**Last Updated:** 2024
+**Last Updated:** 16/04/26
 **Maintainer:** VoiceBridge Development Team
